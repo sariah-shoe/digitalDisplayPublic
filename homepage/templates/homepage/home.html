@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+
+<head>
+    <title>Digital Innovation Labs</title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    >
+    <link href="{% static 'css/home.css' %}" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Teko&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="header">
+    <h1>Employees Currently On Shift</h1>
+  </div>
+  <div class="container">
+    <div class="row">
+      {% for employee in working_people%}
+        <div class = "col-md-4">
+        <div class="card" style="width: 18rem; background-color:rgb({{employee.color}})">
+            <img src={{employee.image}} class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{employee.firstName}} {{employee.lastName}}</h5>
+            </div>
+          </div>
+        </div>
+      {% endfor%}
+      </div>
+    </div>
+
+    <script>
+      // Function to calculate the remaining time until the next half hour
+      function getRemainingTimeUntilNextHalfHour() {
+          var now = new Date();
+          var nextHalfHour = new Date(now);
+          nextHalfHour.setMinutes(now.getMinutes() + 31, 0, 0); // Set the next half hour and reset seconds and milliseconds
+          return nextHalfHour - now;
+      }
+  
+      // Function to refresh the page and schedule the next refresh at the top of the next half hour
+      function refreshPageAtTopOfHalfHour() {
+          location.reload();
+          var remainingTime = getRemainingTimeUntilNextHalfHour();
+          setTimeout(refreshPageAtTopOfHalfHour, remainingTime);
+      }
+  
+      // Initial call to start the refresh cycle
+      setTimeout(refreshPageAtTopOfHalfHour, getRemainingTimeUntilNextHalfHour());
+  </script>
+  
+</body>

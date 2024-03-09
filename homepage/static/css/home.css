@@ -1,0 +1,44 @@
+body {
+    background-image: url('https://images.unsplash.com/photo-1611505908502-5b67e53e3a76?q=80&w=2070');
+    background-repeat: no-repeat;
+}
+
+.col-md-4 {
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    background-color: red;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    border-radius: 10%;
+    justify-content: center;
+    padding: 10px;
+    filter: drop-shadow(10px 10px 0.75rem crimson);
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card img {
+    border-radius: 10%;
+    height: 200px;
+    width: fit-content;
+}
+
+.header {
+    background-color: rgb(218,087,054);
+    color: black;
+    text-align: center;
+    font-family: 'Teko', sans-serif;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: larger;
+}
+
+h1{
+    font-size: 4rem;
+}
